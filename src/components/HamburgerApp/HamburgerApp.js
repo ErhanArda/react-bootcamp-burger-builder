@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import malzemeler from "../../constants/malzemeler"
 import "./styles.css"
-
+import classnames from 'classnames';
+import {Hamburger} from "../../components"
 class HamburgerApp extends Component {
     constructor(props) {
         super(props)
@@ -10,7 +11,7 @@ class HamburgerApp extends Component {
         }
     }
 
-    malzemeEkle = (malzeme) => {        
+    malzemeEkle = (malzeme) => {
 
         const varMi = this.state.secilenMalzemeler.find((secilenMalzeme) => secilenMalzeme.id === malzeme.id);
         if (varMi) {
@@ -34,18 +35,18 @@ class HamburgerApp extends Component {
         const secilenMalzeme = this.state.secilenMalzemeler.find((secilenMalzeme) => secilenMalzeme.id === malzeme.id);
         const secilenMalzemeCount = secilenMalzeme.count;
 
-        if(secilenMalzemeCount > 1){
+        if (secilenMalzemeCount > 1) {
             this.setState({
-                secilenMalzemeler: this.state.secilenMalzemeler.map((secilen)=>{
-                    if(secilen.id=== malzeme.id){
-                        return {...secilen,count: secilen.count - 1}
+                secilenMalzemeler: this.state.secilenMalzemeler.map((secilen) => {
+                    if (secilen.id === malzeme.id) {
+                        return { ...secilen, count: secilen.count - 1 }
                     }
                     return secilen
                 })
             })
-        }else{
+        } else {
             this.setState({
-                secilenMalzemeler: this.state.secilenMalzemeler.filter((secilen)=>{
+                secilenMalzemeler: this.state.secilenMalzemeler.filter((secilen) => {
                     return secilen.id !== malzeme.id
                 })
             })
@@ -58,34 +59,26 @@ class HamburgerApp extends Component {
         const { secilenMalzemeler } = this.state;
         return (
             <div>
-                <h2>Hamburgerdeki malzemeler</h2>
-                <div>
-                    <ul>
-                        {
-                            secilenMalzemeler.map((malzeme) => {
-                                return <li key={malzeme.id}>{malzeme.name} sayı: {malzeme.count}</li>
-                            })
-                        }
-                    </ul>
-                </div>
+                <Hamburger secilenMalzemeler={secilenMalzemeler}/>
 
 
                 <h2>Eklenecek Malzemeler</h2>
                 <ul>
                     {
                         malzemeler.map((malzeme) => {
-                            const azaltButonunuGoster = secilenMalzemeler.find((secilenMalzeme)=> secilenMalzeme.id === malzeme.id)
+                            const azaltButonunuGoster = secilenMalzemeler.find((secilenMalzeme) => secilenMalzeme.id === malzeme.id)
                             return <li key={malzeme.id}>
                                 {malzeme.name}
                                 <button onClick={() => {
                                     this.malzemeEkle(malzeme)
                                 }} className="malzeme-ekle" >Ekle</button>
-                                
+
                                 <button onClick={() => {
                                     this.malzemeCikar(malzeme)
-                                }}className={
-                                    azaltButonunuGoster ? "malzeme-cikar" : "malzeme-cikar disabled"
-                                }>Çıkar</button>
+                                }} className={classnames({
+                                    "malzeme-cikar":true,
+                                    "disabled": !azaltButonunuGoster,
+                                })}>Çıkar</button>
                             </li>
                         })
                     }
