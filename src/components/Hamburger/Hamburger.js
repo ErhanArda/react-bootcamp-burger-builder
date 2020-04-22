@@ -1,8 +1,9 @@
 import React from 'react';
 import "./styles.css";
 
-const Hamburger = (props) => {
 
+const Hamburger = ({secilenMalzemeler}) => {
+    // Kapsayici icin React fragment kullaniyoruz.
     return (
         <>
             <div>
@@ -10,7 +11,7 @@ const Hamburger = (props) => {
                     height: "100px"
                 }} />
                 {
-                    props.secilenMalzemeler.map((malzeme) => {
+                    secilenMalzemeler.map((malzeme) => {
                         const elements = [];
                         const malzemeDivi = <div
                             key={malzeme.id}
@@ -20,12 +21,13 @@ const Hamburger = (props) => {
                                 width: "30%",
                                 margin: "0 auto",
                                 marginTop: "5px",
-                                borderRadius: "20px"
+                                borderRadius:"20px"
                             }}
                         >
                             {malzeme.name}
+                            {/* {malzeme.count} */}
                         </div>;
-                        for (let i = 0; i < malzeme.count; i++) {
+                        for(let i=0; i< malzeme.count;i++){
                             elements.push(malzemeDivi);
                         }
                         return elements;
@@ -33,8 +35,10 @@ const Hamburger = (props) => {
                 }
                 <div className="BreadBottom" style={{
                     height: "50px"
-                }} />
+                }}/>
+                
             </div>
+            
         </>
     );
 };

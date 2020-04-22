@@ -1,4 +1,3 @@
-import HamburgerApp from './HamburgerApp';
-
+import HamburgerApp from "./HamburgerApp";
 
 export default HamburgerApp;
