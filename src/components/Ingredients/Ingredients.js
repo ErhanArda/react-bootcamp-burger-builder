@@ -1,9 +1,10 @@
 import React from 'react'
 import "./styles.css"
 import classnames from "classnames";
+import malzemeler from "../../constants/malzemeler"
 
 
-const Ingredients = ({ malzemeler, secilenMalzemeler, malzemeEkle, malzemeCikar }) => {
+const Ingredients = ({ secilenMalzemeler, malzemeEkle, malzemeCikar }) => {
     return (
         <>
             <div>

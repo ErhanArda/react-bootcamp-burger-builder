@@ -24,7 +24,7 @@ const Hamburger = ({secilenMalzemeler}) => {
                                 borderRadius:"20px"
                             }}
                         >
-                            {malzeme.name}
+                            <p>{malzeme.name} and {malzeme.price}</p>
                             {/* {malzeme.count} */}
                         </div>;
                         for(let i=0; i< malzeme.count;i++){

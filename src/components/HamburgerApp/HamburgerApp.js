@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import malzemeler from "../../constants/malzemeler";
 import "./styles.css";
 import { Hamburger } from "../../components";
 import { Ingredients } from '../../components';
+import { TotalPrice } from "../../components";
 
 
 
@@ -11,7 +11,8 @@ class HamburgerApp extends Component {
         super(props);
 
         this.state = {
-            secilenMalzemeler: []
+            secilenMalzemeler: [],
+            totalPrice: 0,
         }
     }
 
@@ -19,7 +20,7 @@ class HamburgerApp extends Component {
         // var mi yok mu kontrol ediyoruz
         const varMi = this.state.secilenMalzemeler.find((secilenMalzeme) => secilenMalzeme.id === malzeme.id);
         // var ise sayisini artircaz, yok ise arraye ekliyoruz
-        console.log("var mi yok mu", varMi);
+        //console.log("var mi yok mu", varMi);
         if (varMi) {
             this.setState({
                 secilenMalzemeler: this.state.secilenMalzemeler.map((secilenMalzeme) => {
@@ -60,16 +61,28 @@ class HamburgerApp extends Component {
         }
     }
 
+
+
+    total = () => {
+        let totals = 0;
+        this.state.secilenMalzemeler.map((malzeme) => {
+            totals += malzeme.price * malzeme.count
+        });
+        return totals;
+
+    }
+
     render() {
         const { secilenMalzemeler } = this.state;
         return (
             <div>
                 <Hamburger secilenMalzemeler={secilenMalzemeler} />
-                <Ingredients malzemeler={malzemeler}
+                <Ingredients
                     secilenMalzemeler={secilenMalzemeler}
                     malzemeEkle={this.malzemeEkle}
-                    malzemeCikar= {this.malzemeCikar}
+                    malzemeCikar={this.malzemeCikar}
                 />
+                <TotalPrice total={this.total} />
             </div>
         );
     }
