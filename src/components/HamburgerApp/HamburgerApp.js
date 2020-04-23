@@ -64,11 +64,15 @@ class HamburgerApp extends Component {
 
 
     total = () => {
-        let totals = 0;
-        this.state.secilenMalzemeler.map((malzeme) => {
-            totals += malzeme.price * malzeme.count
+        /* let totals = 0;
+        this.state.secilenMalzemeler.forEach((malzeme) => {
+             totals += malzeme.price * malzeme.count
         });
-        return totals;
+         return totals; */
+        const total = this.state.secilenMalzemeler.reduce((total, malzeme) => {
+            return total + malzeme.price * malzeme.count;
+        }, 0)
+        return total
 
     }
 
