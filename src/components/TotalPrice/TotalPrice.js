@@ -3,7 +3,7 @@ import React from 'react'
 const TotalPrice = ({total}) => {
     return (
         <div>
-                <p>Total Price: {total()}</p>
+                <h3>Total Price: {total()}</h3>
         </div>
     )
 }
