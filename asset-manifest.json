@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-bootcamp-burger-builder/static/css/main.f96b52da.chunk.css",
+    "main.js": "/react-bootcamp-burger-builder/static/js/main.d8e4fca3.chunk.js",
+    "main.js.map": "/react-bootcamp-burger-builder/static/js/main.d8e4fca3.chunk.js.map",
+    "runtime-main.js": "/react-bootcamp-burger-builder/static/js/runtime-main.dc910bee.js",
+    "runtime-main.js.map": "/react-bootcamp-burger-builder/static/js/runtime-main.dc910bee.js.map",
+    "static/js/2.4ddb3825.chunk.js": "/react-bootcamp-burger-builder/static/js/2.4ddb3825.chunk.js",
+    "static/js/2.4ddb3825.chunk.js.map": "/react-bootcamp-burger-builder/static/js/2.4ddb3825.chunk.js.map",
+    "index.html": "/react-bootcamp-burger-builder/index.html",
+    "precache-manifest.9366b0bcde293640e1eddfd60bd43030.js": "/react-bootcamp-burger-builder/precache-manifest.9366b0bcde293640e1eddfd60bd43030.js",
+    "service-worker.js": "/react-bootcamp-burger-builder/service-worker.js",
+    "static/css/main.f96b52da.chunk.css.map": "/react-bootcamp-burger-builder/static/css/main.f96b52da.chunk.css.map",
+    "static/js/2.4ddb3825.chunk.js.LICENSE.txt": "/react-bootcamp-burger-builder/static/js/2.4ddb3825.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dc910bee.js",
+    "static/js/2.4ddb3825.chunk.js",
+    "static/css/main.f96b52da.chunk.css",
+    "static/js/main.d8e4fca3.chunk.js"
+  ]
+}
